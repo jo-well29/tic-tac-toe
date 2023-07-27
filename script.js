@@ -75,3 +75,28 @@ const makeMove = (row, col) => {
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     }
 }
+
+
+// - Grab btn 
+// - set up eventlistner with callback func
+
+const resetBtn = document.querySelector('.reset-btn')
+//    .addEventListener("click", clearFunc)
+
+// console.log(resetBtn)
+
+const resetGame = () => {
+    // console.log("board before: ", board)
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < 3; j++) {
+            board[i][j] = ''
+            // console.log(board[i][j], "here")
+            // console.log(board)
+
+            document.getElementsByClassName('cell')[i * 3 + j].innerText = '';
+            console.log(document.getElementsByClassName('cell'))
+        }
+    }
+}
+
+resetBtn.addEventListener("click", resetGame)
