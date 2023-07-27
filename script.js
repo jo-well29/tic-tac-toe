@@ -79,24 +79,26 @@ const makeMove = (row, col) => {
 
 // - Grab btn 
 // - set up eventlistner with callback func
+// - create func that resets game
+//  -  we want to go to each box and clear it
+//  - make sure the html cell clears as well
+//  - change back currentplayer to "x" and make sure gameIsOver is set to false
 
 const resetBtn = document.querySelector('.reset-btn')
-//    .addEventListener("click", clearFunc)
-
-// console.log(resetBtn)
 
 const resetGame = () => {
-    // console.log("board before: ", board)
+    
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < 3; j++) {
             board[i][j] = ''
-            // console.log(board[i][j], "here")
-            // console.log(board)
-
             document.getElementsByClassName('cell')[i * 3 + j].innerText = '';
             console.log(document.getElementsByClassName('cell'))
         }
     }
+    
+    currentPlayer = 'X';
+    gameIsOver = false;
+    document.getElementById('result').innerText = '';
 }
 
 resetBtn.addEventListener("click", resetGame)
